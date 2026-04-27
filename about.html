@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Ramachandra Lifts & Elevators - Our story, values, and commitment to excellence">
+  <title>About Us - Ramachandra Lifts & Elevators</title>
+  <link rel="stylesheet" href="css/tailwind.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    .font-heading { font-family: 'Playfair Display', serif; }
+    .font-body { font-family: 'DM Sans', sans-serif; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.3s; opacity: 0; }
+    body { box-sizing: border-box; }
+  </style>
+</head>
+<body class="h-full font-body bg-[#0a1628]">
+  <div class="w-full h-full overflow-auto">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/95 backdrop-blur-sm border-b border-[#1e3a5f]">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-[#d4a853] flex items-center justify-center">
+            <i data-lucide="arrow-up" class="w-6 h-6 text-[#0a1628]"></i>
+          </div>
+          <a href="index.html" class="font-heading text-lg text-[#f0e6d3] font-bold">Ramachandra Lifts</a>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="services.html" class="text-[#a0b4c8] hover:text-[#d4a853] transition-colors text-sm">Services</a>
+          <a href="about.html" class="text-[#d4a853] font-medium transition-colors text-sm">About</a>
+          <a href="contact.html" class="text-[#a0b4c8] hover:text-[#d4a853] transition-colors text-sm">Contact</a>
+          <button onclick="openBookingModal()" class="bg-[#d4a853] text-[#0a1628] px-5 py-2 rounded-lg font-medium text-sm hover:bg-[#e0b96a] transition-colors">Book Now</button>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-[#f0e6d3]">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 border-t border-[#1e3a5f]">
+        <a href="index.html" class="block text-[#a0b4c8] hover:text-[#d4a853] py-2">Home</a>
+        <a href="services.html" class="block text-[#a0b4c8] hover:text-[#d4a853] py-2">Services</a>
+        <a href="about.html" class="block text-[#d4a853] py-2">About</a>
+        <a href="contact.html" class="block text-[#a0b4c8] hover:text-[#d4a853] py-2">Contact</a>
+        <button onclick="openBookingModal()" class="w-full bg-[#d4a853] text-[#0a1628] px-5 py-2 rounded-lg font-medium text-sm hover:bg-[#e0b96a] transition-colors">Book Now</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 right-10 w-72 h-72 bg-[#d4a853]/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-96 h-96 bg-[#1e3a5f]/30 rounded-full blur-3xl"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-3xl animate-fade-up">
+          <p class="text-[#d4a853] font-medium mb-4 tracking-wider uppercase text-sm">Our Story</p>
+          <h1 class="font-heading text-4xl md:text-6xl text-[#f0e6d3] font-800 leading-tight mb-6">Built on Trust & Excellence</h1>
+          <p class="text-[#a0b4c8] text-lg md:text-xl leading-relaxed">With over a decade of experience in elevator engineering and maintenance, Ramachandra Lifts & Elevators has become a trusted name in Hyderabad's vertical transportation industry.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <!-- Mission & Vision -->
+        <div class="grid md:grid-cols-2 gap-12 mb-20">
+          <div class="animate-fade-up delay-1">
+            <h2 class="font-heading text-3xl text-[#f0e6d3] font-bold mb-6 flex items-center gap-3">
+              <i data-lucide="target" class="w-8 h-8 text-[#d4a853]"></i>
+              Our Mission
+            </h2>
+            <p class="text-[#a0b4c8] leading-relaxed mb-4">
+              To provide safe, reliable, and innovative elevator solutions that enhance the vertical mobility and aesthetic appeal of buildings throughout Hyderabad and beyond.
+            </p>
+            <p class="text-[#a0b4c8] leading-relaxed">
+              We are committed to delivering exceptional service with integrity, professionalism, and a customer-first approach. Safety and quality are never compromised.
+            </p>
+          </div>
+
+          <div class="animate-fade-up delay-2">
+            <h2 class="font-heading text-3xl text-[#f0e6d3] font-bold mb-6 flex items-center gap-3">
+              <i data-lucide="eye" class="w-8 h-8 text-[#d4a853]"></i>
+              Our Vision
+            </h2>
+            <p class="text-[#a0b4c8] leading-relaxed mb-4">
+              To be the most trusted and preferred elevator service provider in the region, known for our technical excellence and customer satisfaction.
+            </p>
+            <p class="text-[#a0b4c8] leading-relaxed">
+              We envision a future where every building benefits from state-of-the-art elevator systems maintained to the highest standards of safety and efficiency.
+            </p>
+          </div>
+        </div>
+
+        <!-- Why Choose Us -->
+        <div class="bg-[#111d32] border border-[#1e3a5f] rounded-2xl p-12 mb-20">
+          <h2 class="font-heading text-3xl text-[#f0e6d3] font-bold mb-12 text-center">Why Choose Ramachandra Lifts?</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="animate-fade-up">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="award" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">Certified Expertise</h3>
+              </div>
+              <p class="text-[#a0b4c8]">Our team comprises certified technicians with years of hands-on experience in elevator engineering and maintenance.</p>
+            </div>
+
+            <div class="animate-fade-up delay-1">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="clock-24" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">24/7 Support</h3>
+              </div>
+              <p class="text-[#a0b4c8]">We provide round-the-clock emergency support to ensure your elevators are always operational when you need them.</p>
+            </div>
+
+            <div class="animate-fade-up delay-2">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="shield-check" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">Safety First</h3>
+              </div>
+              <p class="text-[#a0b4c8]">Every service adheres to strict safety standards and compliance requirements. Your peace of mind is our priority.</p>
+            </div>
+
+            <div class="animate-fade-up delay-3">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="zap-off" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">Preventive Maintenance</h3>
+              </div>
+              <p class="text-[#a0b4c8]">Regular maintenance programs minimize downtime and extend the lifespan of your elevator systems.</p>
+            </div>
+
+            <div class="animate-fade-up delay-1">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="package" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">Quality Parts</h3>
+              </div>
+              <p class="text-[#a0b4c8]">We use only genuine, high-quality spare parts and components from trusted manufacturers.</p>
+            </div>
+
+            <div class="animate-fade-up delay-2">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-[#d4a853]/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="dollar-sign" class="w-6 h-6 text-[#d4a853]"></i>
+                </div>
+                <h3 class="font-heading text-xl text-[#f0e6d3] font-bold">Competitive Pricing</h3>
+              </div>
+              <p class="text-[#a0b4c8]">Transparent pricing with flexible AMC packages designed to fit your budget and requirements.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="grid md:grid-cols-4 gap-6 mb-20">
+          <div class="bg-[#111d32] border border-[#1e3a5f] rounded-xl p-6 text-center animate-fade-up">
+            <p class="font-heading text-4xl text-[#d4a853] font-bold">500+</p>
+            <p class="text-[#a0b4c8] text-sm mt-2">Lifts Serviced</p>
+          </div>
+          <div class="bg-[#111d32] border border-[#1e3a5f] rounded-xl p-6 text-center animate-fade-up delay-1">
+            <p class="font-heading text-4xl text-[#d4a853] font-bold">10+</p>
+            <p class="text-[#a0b4c8] text-sm mt-2">Years Experience</p>
+          </div>
+          <div class="bg-[#111d32] border border-[#1e3a5f] rounded-xl p-6 text-center animate-fade-up delay-2">
+            <p class="font-heading text-4xl text-[#d4a853] font-bold">100%</p>
+            <p class="text-[#a0b4c8] text-sm mt-2">Customer Satisfaction</p>
+          </div>
+          <div class="bg-[#111d32] border border-[#1e3a5f] rounded-xl p-6 text-center animate-fade-up delay-3">
+            <p class="font-heading text-4xl text-[#d4a853] font-bold">24/7</p>
+            <p class="text-[#a0b4c8] text-sm mt-2">Emergency Support</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="bg-gradient-to-r from-[#111d32] to-[#1a2f4a] border border-[#1e3a5f] rounded-2xl p-12 text-center">
+          <h2 class="font-heading text-3xl text-[#f0e6d3] font-bold mb-4">Let's Work Together</h2>
+          <p class="text-[#a0b4c8] mb-8 max-w-2xl mx-auto">Experience the difference that professional expertise and dedicated service can make for your building.</p>
+          <button onclick="openBookingModal()" class="bg-[#d4a853] text-[#0a1628] px-8 py-3.5 rounded-lg font-bold hover:bg-[#e0b96a] transition-colors inline-flex items-center gap-2">
+            <i data-lucide="calendar" class="w-5 h-5"></i> Schedule Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#1e3a5f] py-12 px-6 bg-[#111d32] mt-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-lg bg-[#d4a853] flex items-center justify-center">
+                <i data-lucide="arrow-up" class="w-6 h-6 text-[#0a1628]"></i>
+              </div>
+              <span class="font-heading text-lg text-[#f0e6d3] font-bold">Ramachandra Lifts</span>
+            </div>
+            <p class="text-[#a0b4c8] text-sm">Professional elevator services and solutions.</p>
+          </div>
+          <div>
+            <h4 class="font-heading text-[#f0e6d3] font-bold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="index.html" class="text-[#a0b4c8] hover:text-[#d4a853] transition-colors">Home</a></li>
+              <li><a href="services.html" class="text-[#a0b4c8] hover:text-[#d4a853] transition-colors">Services</a></li>
+              <li><a href="contact.html" class="text-[#a0b4c8] hover:text-[#d4a853] transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading text-[#f0e6d3] font-bold mb-4">Contact</h4>
+            <ul class="space-y-2 text-sm text-[#a0b4c8]">
+              <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> +91 98765 43210</li>
+              <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> info@rmlel.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-[#1e3a5f] pt-8">
+          <p class="text-[#a0b4c8] text-sm text-center">© 2024 Ramachandra Lifts & Elevators. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-6 overflow-y-auto">
+      <div class="bg-[#111d32] rounded-2xl border border-[#1e3a5f] max-w-2xl w-full my-8 animate-fade-up">
+        <div class="bg-[#111d32] border-b border-[#1e3a5f] px-8 py-6 flex items-center justify-between sticky top-0">
+          <h2 class="font-heading text-2xl text-[#f0e6d3] font-bold">Book Your Appointment</h2>
+          <button onclick="closeBookingModal()" class="text-[#a0b4c8] hover:text-[#f0e6d3]">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <form id="bookingForm" class="p-8 space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Full Name *</label>
+              <input type="text" name="name" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors" placeholder="Enter your name">
+            </div>
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Phone Number *</label>
+              <input type="tel" name="phone" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors" placeholder="+91 98765 43210">
+            </div>
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Email *</label>
+              <input type="email" name="email" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors" placeholder="your@email.com">
+            </div>
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Service Type *</label>
+              <select name="service" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors">
+                <option value="">Select a service</option>
+                <option value="Lift Maintenance">Lift Maintenance</option>
+                <option value="Circuit Breakers">Circuit Breakers</option>
+                <option value="Panel Works">Panel Works</option>
+                <option value="Cabin Fittings">Cabin Fittings</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Preferred Date *</label>
+              <input type="date" name="date" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors">
+            </div>
+            <div>
+              <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Preferred Time *</label>
+              <select name="time" required class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors">
+                <option value="">Select time</option>
+                <option value="09:00-11:00">09:00 AM - 11:00 AM</option>
+                <option value="11:00-01:00">11:00 AM - 01:00 PM</option>
+                <option value="01:00-03:00">01:00 PM - 03:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="text-[#f0e6d3] font-medium text-sm mb-2 block">Additional Details</label>
+            <textarea name="notes" rows="4" class="w-full bg-[#0a1628] border border-[#1e3a5f] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors resize-none" placeholder="Tell us more..."></textarea>
+          </div>
+          <div class="flex gap-4 pt-4">
+            <button type="submit" class="flex-1 bg-[#d4a853] text-[#0a1628] py-3.5 rounded-lg font-bold hover:bg-[#e0b96a] transition-colors">Confirm</button>
+            <button type="button" onclick="closeBookingModal()" class="flex-1 border border-[#1e3a5f] text-[#f0e6d3] py-3.5 rounded-lg font-medium hover:border-[#d4a853] transition-colors">Cancel</button>
+          </div>
+          <p id="bookingSuccess" class="hidden text-green-400 text-center text-sm py-3 bg-green-400/10 rounded-lg">✓ Booked successfully!</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

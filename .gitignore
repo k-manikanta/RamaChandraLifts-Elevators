@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+css/tailwind.css
+dist/
+build/
+
+# Development
+.env.local
+.DS_Store
+*.log
+*.swp
+.vscode/
+
+# IDE
+.idea/
+*.sublime-project
+*.sublime-workspace

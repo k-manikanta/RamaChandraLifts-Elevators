@@ -1,0 +1,24 @@
+{
+  "name": "ramachandra-lifts-website",
+  "version": "1.0.0",
+  "description": "Professional website for Ramachandra Lifts & Elevators",
+  "main": "index.html",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/tailwind.css",
+    "dev": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch",
+    "build:minify": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify"
+  },
+  "keywords": [
+    "elevator",
+    "maintenance",
+    "service",
+    "lifts"
+  ],
+  "author": "Ramachandra Lifts & Elevators",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.4.40",
+    "autoprefixer": "^10.4.19"
+  }
+}
