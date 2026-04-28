@@ -281,22 +281,50 @@ function showMessage(message, type = 'success') {
 }
 
 // ==================== Smooth Scroll ====================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#') return;
-    
-    e.preventDefault();
-    const target = document.querySelector(href);
-    
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      
+      if (target) {
+        // Get the scrollable container (the #app div)
+        const appContainer = document.getElementById('app');
+        
+        if (appContainer) {
+          // Scroll within the container
+          const navHeight = 80;
+          const containerRect = appContainer.getBoundingClientRect();
+          const targetRect = target.getBoundingClientRect();
+          
+          // Calculate the scroll position relative to the container
+          const scrollTop = appContainer.scrollTop + targetRect.top - containerRect.top - navHeight;
+          
+          appContainer.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+          });
+        } else {
+          // Fallback to window scroll if container not found
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
   });
-});
+}
+
+// Initialize smooth scroll when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupSmoothScroll);
+} else {
+  setupSmoothScroll();
+}
 
 // ==================== Navbar Scroll Effect ====================
 let lastScroll = 0;
