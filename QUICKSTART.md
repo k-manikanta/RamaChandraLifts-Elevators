@@ -1,4 +1,4 @@
-# Ramachandra Lifts & Elevators - Website Setup Summary
+# RC Elevators & Escalators - Website Setup Summary
 
 ## ✅ What Has Been Built
 
@@ -139,7 +139,7 @@ Find and replace in ALL HTML files:
 
 ### Change Business Name
 Find and replace:
-- `Ramachandra Lifts & Elevators` → Your business name
+- `RC Elevators & Escalators` → Your business name
 
 ### Update Colors (Optional)
 Search for these hex codes in HTML style sections:

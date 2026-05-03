@@ -1,6 +1,6 @@
-# Ramachandra Lifts & Elevators - Professional Website
+# RC Elevators & Escalators - Professional Website
 
-A modern, responsive static website for Ramachandra Lifts & Elevators with an integrated appointment booking system.
+A modern, responsive static website for RC Elevators & Escalators with an integrated appointment booking system.
 
 ## 📋 Project Overview
 
@@ -232,7 +232,7 @@ fetch('/api/book-appointment', {
 
 ### Change Business Information
 Edit in all HTML files:
-- Business name: "Ramachandra Lifts & Elevators"
+- Business name: "RC Elevators & Escalators"
 - Phone: "+91 98765 43210"
 - Email: "info@rmlel.com"
 - Location: "Hyderabad, Telangana, India"
@@ -337,7 +337,7 @@ To add Google Analytics:
 
 ## 📄 License
 
-This website template is created for Ramachandra Lifts & Elevators.
+This website template is created for RC Elevators & Escalators.
 
 ## 🎯 Future Enhancements
 

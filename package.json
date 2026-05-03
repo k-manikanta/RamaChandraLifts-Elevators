@@ -1,7 +1,7 @@
 {
   "name": "ramachandra-lifts-website",
   "version": "1.0.0",
-  "description": "Professional website for Ramachandra Lifts & Elevators",
+  "description": "Professional website for RC Elevators & Escalators",
   "main": "index.html",
   "scripts": {
     "build": "tailwindcss -i ./src/input.css -o ./css/tailwind.css",
@@ -15,7 +15,7 @@
     "service",
     "lifts"
   ],
-  "author": "Ramachandra Lifts & Elevators",
+  "author": "RC Elevators & Escalators",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.19",

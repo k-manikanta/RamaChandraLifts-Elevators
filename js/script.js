@@ -1,5 +1,5 @@
 /**
- * Ramachandra Lifts & Elevators - Main JavaScript
+ * RC Elevators & Escalators - Main JavaScript
  * Handles all interactive features and functionality
  */
 
@@ -411,5 +411,5 @@ window.exportAppointments = function() {
   window.URL.revokeObjectURL(url);
 };
 
-console.log('%cRamachandra Lifts & Elevators', 'color: #d4a853; font-size: 20px; font-weight: bold;');
+console.log('%cRC Elevators & Escalators', 'color: #d4a853; font-size: 20px; font-weight: bold;');
 console.log('%cUse viewAppointments(), clearAppointments(), or exportAppointments() for data management', 'color: #a0b4c8;');

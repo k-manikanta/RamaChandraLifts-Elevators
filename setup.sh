@@ -4,7 +4,7 @@
 
 echo ""
 echo "===================================="
-echo "Ramachandra Lifts & Elevators Setup"
+echo "RC Elevators & Escalators Setup"
 echo "===================================="
 echo ""
 
