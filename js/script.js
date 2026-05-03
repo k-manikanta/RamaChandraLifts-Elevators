@@ -3,6 +3,10 @@
  * Handles all interactive features and functionality
  */
 
+// ==================== Email JS Initialization ====================
+// Initialize Email JS with your public key
+emailjs.init('ELTV5M97dEJdhrbEE');
+
 // ==================== Initialization ====================
 document.addEventListener('DOMContentLoaded', function() {
   initializeApp();
@@ -152,32 +156,33 @@ function handleContactSubmit(e) {
     return;
   }
 
-  // Prepare data
-  const formData = {
-    name,
-    phone,
-    message,
-    timestamp: new Date().toISOString()
+  // Prepare data for Email JS
+  const templateParams = {
+    from_name: name,
+    from_phone: phone,
+    message: message,
+    to_email: 'mani1311491998@gmail.com'
   };
 
-  // Store locally (for demo)
-  const inquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
-  inquiries.push(formData);
-  localStorage.setItem('inquiries', JSON.stringify(inquiries));
-
-  // Show success
-  const successEl = document.getElementById('form-success');
-  if (successEl) {
-    successEl.classList.remove('hidden');
-    this.reset();
-    
-    setTimeout(() => {
-      successEl.classList.add('hidden');
-    }, 4000);
-  }
-
-  // Log for debugging
-  console.log('Contact inquiry submitted:', formData);
+  // Send email using Email JS
+  emailjs.send('service_sne0y2h', 'template_io2sl2v', templateParams)
+    .then(function(response) {
+      console.log('Email sent successfully:', response);
+      
+      // Show success
+      const successEl = document.getElementById('form-success');
+      if (successEl) {
+        successEl.classList.remove('hidden');
+        document.getElementById('contact-form').reset();
+        
+        setTimeout(() => {
+          successEl.classList.add('hidden');
+        }, 4000);
+      }
+    }, function(error) {
+      console.error('Email send failed:', error);
+      showMessage('Failed to send message. Please try again later.', 'error');
+    });
 }
 
 // ==================== Booking Modal ====================
@@ -230,22 +235,36 @@ function handleBookingSubmit(e) {
     return;
   }
 
-  // Store appointment
-  const appointments = JSON.parse(localStorage.getItem('appointments') || '[]');
-  appointments.push(data);
-  localStorage.setItem('appointments', JSON.stringify(appointments));
+  // Prepare data for Email JS
+  const templateParams = {
+    to_email: 'kedarisettimanikanta@gmail.com',
+    from_name: data.name,
+    from_phone: data.phone,
+    from_email: data.email,
+    service_type: data.service,
+    appointment_date: data.date,
+    appointment_time: data.time,
+    building_name: data.building,
+    additional_notes: data.notes || 'No additional notes'
+  };
 
-  // Show success
-  document.getElementById('bookingError').classList.add('hidden');
-  document.getElementById('bookingSuccess').classList.remove('hidden');
+  // Send email using Email JS
+  emailjs.send('service_sne0y2h', 'template_llcr0s8', templateParams)
+    .then(function(response) {
+      console.log('Booking email sent successfully:', response);
+      
+      // Show success
+      document.getElementById('bookingError').classList.add('hidden');
+      document.getElementById('bookingSuccess').classList.remove('hidden');
 
-  // Log for debugging
-  console.log('Appointment booked:', data);
-
-  // Close modal after delay
-  setTimeout(() => {
-    closeBookingModal();
-  }, 2000);
+      // Close modal after delay
+      setTimeout(() => {
+        closeBookingModal();
+      }, 2000);
+    }, function(error) {
+      console.error('Booking email send failed:', error);
+      showBookingError('Failed to book appointment. Please try again.');
+    });
 }
 
 function showBookingError(message) {
