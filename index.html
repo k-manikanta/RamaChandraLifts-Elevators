@@ -20,18 +20,35 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes slideIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    @keyframes liftMove { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
     .animate-slide-in { animation: slideIn 0.5s ease forwards; }
     .animate-pulse-custom { animation: pulse 2s ease-in-out infinite; }
+    .animate-lift { animation: liftMove 1.5s ease-in-out infinite; }
+    .animate-spin-loader { animation: spin 2s linear infinite; }
     .delay-1 { animation-delay: 0.1s; opacity: 0; }
     .delay-2 { animation-delay: 0.2s; opacity: 0; }
     .delay-3 { animation-delay: 0.3s; opacity: 0; }
     .delay-4 { animation-delay: 0.4s; opacity: 0; }
     .gradient-gold { background: linear-gradient(135deg, #d4a853 0%, #e0b96a 100%); }
+    .loader-container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .loader-lift-icon { color: #d4a853; }
+    .loader-text { color: #d4a853; font-size: 14px; font-weight: 500; }
+    .loader-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); z-index: 9999; display: none; align-items: center; justify-content: center; }
+    .loader-overlay.show { display: flex; }
     .glass-effect { background: rgba(20, 29, 50, 0.5); backdrop-filter: blur(10px); }
   </style>
 </head>
 <body class="h-full font-body bg-[#000000]">
+  <!-- Global Loader Overlay -->
+  <div id="globalLoader" class="loader-overlay">
+    <div class="loader-container">
+      <div class="animate-lift"><i data-lucide="arrow-up-down" class="w-10 h-10 loader-lift-icon"></i></div>
+      <p class="loader-text">Processing your request...</p>
+    </div>
+  </div>
+
   <div id="app" class="w-full h-full overflow-auto">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#000000]/95 backdrop-blur-sm border-b border-[#2a2a2a]">
@@ -199,7 +216,8 @@
        <div><label for="phone-input" class="text-[#a0b4c8] text-sm mb-1 block">Phone Number</label> <input type="tel" id="phone-input" class="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors" placeholder="+91 ...">
        </div>
        <div><label for="message" class="text-[#a0b4c8] text-sm mb-1 block">Message</label> <textarea id="message" rows="4" class="w-full bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-[#f0e6d3] focus:outline-none focus:border-[#d4a853] transition-colors resize-none" placeholder="Tell us about your requirement..."></textarea>
-       </div><button type="submit" class="w-full bg-[#d4a853] text-[#0a1628] py-3.5 rounded-lg font-bold hover:bg-[#e0b96a] transition-colors">Send Enquiry</button>
+       </div>
+       <button type="submit" class="w-full bg-[#d4a853] text-[#0a1628] py-3.5 rounded-lg font-bold hover:bg-[#e0b96a] transition-colors">Send Enquiry</button>
        <p id="form-success" class="hidden text-green-400 text-center text-sm mt-2">✓ Thank you! We'll get back to you shortly.</p>
       </form>
      </div>

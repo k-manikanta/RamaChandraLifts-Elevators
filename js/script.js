@@ -172,6 +172,13 @@ function handleContactSubmit(e) {
     return;
   }
 
+  // Show global loader
+  const globalLoader = document.getElementById('globalLoader');
+  if (globalLoader) {
+    globalLoader.classList.add('show');
+    lucide.createIcons();
+  }
+
   // Prepare data for Email JS
   const templateParams = {
     from_name: name,
@@ -185,6 +192,9 @@ function handleContactSubmit(e) {
     .then(function(response) {
       console.log('Email sent successfully:', response);
       
+      // Hide global loader
+      if (globalLoader) globalLoader.classList.remove('show');
+      
       // Show success
       const successEl = document.getElementById('form-success');
       if (successEl) {
@@ -197,6 +207,10 @@ function handleContactSubmit(e) {
       }
     }, function(error) {
       console.error('Email send failed:', error);
+      
+      // Hide global loader
+      if (globalLoader) globalLoader.classList.remove('show');
+      
       showMessage('Failed to send message. Please try again later.', 'error');
     });
 }
@@ -258,6 +272,13 @@ function handleBookingSubmit(e) {
     return;
   }
 
+  // Show global loader
+  const globalLoader = document.getElementById('globalLoader');
+  if (globalLoader) {
+    globalLoader.classList.add('show');
+    lucide.createIcons();
+  }
+
   // Prepare data for Email JS
   const templateParams = {
     to_email: 'kedarisettimanikanta@gmail.com',
@@ -276,6 +297,9 @@ function handleBookingSubmit(e) {
     .then(function(response) {
       console.log('Booking email sent successfully:', response);
       
+      // Hide global loader
+      if (globalLoader) globalLoader.classList.remove('show');
+      
       // Show success
       document.getElementById('bookingError').classList.add('hidden');
       document.getElementById('bookingSuccess').classList.remove('hidden');
@@ -286,6 +310,10 @@ function handleBookingSubmit(e) {
       }, 2000);
     }, function(error) {
       console.error('Booking email send failed:', error);
+      
+      // Hide global loader
+      if (globalLoader) globalLoader.classList.remove('show');
+      
       showBookingError('Failed to book appointment. Please try again.');
     });
 }

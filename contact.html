@@ -14,11 +14,28 @@
     .font-heading { font-family: 'Playfair Display', serif; }
     .font-body { font-family: 'DM Sans', sans-serif; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes liftMove { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
+    .animate-lift { animation: liftMove 1.5s ease-in-out infinite; }
+    .animate-spin-loader { animation: spin 2s linear infinite; }
+    .loader-container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .loader-lift-icon { color: #d4a853; }
+    .loader-text { color: #d4a853; font-size: 14px; font-weight: 500; }
+    .loader-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); z-index: 9999; display: none; align-items: center; justify-content: center; }
+    .loader-overlay.show { display: flex; }
     body { box-sizing: border-box; }
   </style>
 </head>
 <body class="h-full font-body bg-[#0a1628]">
+  <!-- Global Loader Overlay -->
+  <div id="globalLoader" class="loader-overlay">
+    <div class="loader-container">
+      <div class="animate-lift"><i data-lucide="arrow-up-down" class="w-10 h-10 loader-lift-icon"></i></div>
+      <p class="loader-text">Processing your request...</p>
+    </div>
+  </div>
+
   <div class="w-full h-full overflow-auto">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0a1628]/95 backdrop-blur-sm border-b border-[#1e3a5f]">
