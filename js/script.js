@@ -99,6 +99,7 @@ function setupFormValidation() {
 
   document.querySelectorAll('input[type="tel"]').forEach(input => {
     input.addEventListener('blur', validatePhone);
+    input.addEventListener('input', restrictPhoneToTenDigits);
   });
 
   document.querySelectorAll('textarea').forEach(textarea => {
@@ -117,13 +118,23 @@ function validateEmail(e) {
   }
 }
 
-function validatePhone(e) {
-  const phone = e.target.value;
-  const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/;
+function restrictPhoneToTenDigits(e) {
+  // Allow only digits and restrict to 10 digits
+  let phone = e.target.value.replace(/[^0-9]/g, '');
   
-  if (phone && !phoneRegex.test(phone)) {
+  if (phone.length > 10) {
+    phone = phone.substring(0, 10);
+  }
+  
+  e.target.value = phone;
+}
+
+function validatePhone(e) {
+  const phone = e.target.value.replace(/[^0-9]/g, '');
+  
+  if (phone && phone.length !== 10) {
     e.target.style.borderColor = '#ff6b6b';
-  } else {
+  } else if (phone) {
     e.target.style.borderColor = '';
   }
 }
@@ -147,7 +158,7 @@ function handleContactSubmit(e) {
   e.preventDefault();
 
   const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone-input').value.trim();
+  const phone = document.getElementById('phone-input').value.trim().replace(/[^0-9]/g, '');
   const message = document.getElementById('message').value.trim();
 
   // Validation
@@ -156,10 +167,15 @@ function handleContactSubmit(e) {
     return;
   }
 
+  if (phone.length !== 10) {
+    showMessage('Phone number must be exactly 10 digits', 'error');
+    return;
+  }
+
   // Prepare data for Email JS
   const templateParams = {
     from_name: name,
-    from_phone: phone,
+    from_phone: '+91' + phone,
     message: message,
     to_email: 'mani1311491998@gmail.com'
   };
@@ -217,9 +233,11 @@ function handleBookingSubmit(e) {
 
   // Get form data
   const formData = new FormData(this);
+  const rawPhone = formData.get('phone').replace(/[^0-9]/g, '');
+  
   const data = {
     name: formData.get('name'),
-    phone: formData.get('phone'),
+    phone: rawPhone,
     email: formData.get('email'),
     service: formData.get('service'),
     date: formData.get('date'),
@@ -235,11 +253,16 @@ function handleBookingSubmit(e) {
     return;
   }
 
+  if (data.phone.length !== 10) {
+    showBookingError('Phone number must be exactly 10 digits');
+    return;
+  }
+
   // Prepare data for Email JS
   const templateParams = {
     to_email: 'kedarisettimanikanta@gmail.com',
     from_name: data.name,
-    from_phone: data.phone,
+    from_phone: '+91' + data.phone,
     from_email: data.email,
     service_type: data.service,
     appointment_date: data.date,
